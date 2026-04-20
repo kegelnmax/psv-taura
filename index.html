@@ -98,7 +98,7 @@
         #backToTop:hover { background-color: #c18b4a; transform: translateY(-3px); }
         #backToTop svg { width: 20px; height: 20px; fill: white; }
 
-        /* --- SERVICES & CARDS --- */
+        /* --- COACHING & CARDS --- */
         .service-card { background: #f9fbf9; border: 1px solid #e0e6e0; border-radius: 10px; padding: 20px; margin-top: 15px; position: relative; }
         .price-badge { background: #c18b4a; color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; white-space: nowrap; }
         .coming-soon-badge { position: absolute; top: 10px; right: 10px; background: #eee; color: #777; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; }
@@ -107,6 +107,11 @@
         .feature-list li::before { content: '✓'; color: #2d5a27; font-weight: bold; flex-shrink: 0; }
         .price-tag { background: #f4f7f4; padding: 15px; border-radius: 8px; border-left: 4px solid #c18b4a; margin: 15px 0; }
         .highlight-text { font-style: italic; color: #c18b4a; font-weight: bold; display: block; margin-bottom: 10px; font-size: 1.1rem; }
+
+        /* NEU: Coaching Features Grid */
+        .coaching-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+        .coaching-item { background: white; padding: 15px; border-radius: 8px; border: 1px solid #eee; text-align: center; }
+        .coaching-item span { font-size: 1.5rem; display: block; margin-bottom: 5px; }
 
         /* --- TERMINE --- */
         .table-responsive { overflow-x: auto; }
@@ -134,7 +139,7 @@
         .member-info h3 { margin: 0; color: #2d5a27; }
         .member-info p.preview-subline { font-style: italic; color: #666; margin-top: 5px; font-size: 0.95rem; }
 
-        /* --- LIGHTBOX GALERIE - BILDER KOMPLETT SICHTBAR --- */
+        /* --- LIGHTBOX GALERIE --- */
         .lightbox-gallery { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 25px; width: 100%; }
         .lightbox-gallery img { 
             width: calc(33.33% - 15px); 
@@ -142,7 +147,7 @@
             max-width: 280px; 
             height: auto; 
             max-height: 400px;
-            object-fit: contain; /* Zeigt das komplette Bild ohne Beschnitt */
+            object-fit: contain;
             border-radius: 8px; 
             background: #222; 
             border: 1px solid #444; 
@@ -237,7 +242,7 @@
 <header>
     <div class="news-box">
         <h4>Ankündigungen</h4>
-        <p>☀️ Pony-Abenteuer am 19.04.2026 um 15 Uhr an der Eisdiele!</p>
+        <p>☀️ keine Ankündigungen!</p>
     </div>
     <img src="Bilder/logo.JPG" alt="Pferdesportverein Taura e.V." class="header-logo" onclick="startHorse()" loading="lazy">
     <div class="header-spacer"></div>
@@ -251,9 +256,9 @@
     </button>
     <div class="nav-links" id="navLinks">
         <a href="#angebot" onclick="toggleMenu()">Angebot</a>
+        <a href="#mitglieder" onclick="toggleMenu()">Mitglieder</a>
         <a href="#services" onclick="toggleMenu()">Services</a>
         <a href="#termine" onclick="toggleMenu()">Termine</a>
-        <a href="#mitglieder" onclick="toggleMenu()">Mitglieder</a>
         <a href="#social" onclick="toggleMenu()">Social Media</a>
         <a href="#galerie" onclick="toggleMenu()">Galerie</a>
         <a href="#faq" onclick="toggleMenu()">FAQ</a>
@@ -278,12 +283,18 @@
         
         <div class="service-card">
             <span class="highlight-text">"Unsere Pferde sind der Spiegel eurer selbst!"</span>
-            <p>Erlebe die Dynamik in der Gruppe mit unserem speziellen Gruppencoaching.</p>
+            <p>Erlebe die Dynamik in der Gruppe mit unserem speziellen Gruppencoaching. Es geht nicht nur um das Reiten, sondern um das Verständnis für das Tier und die Gemeinschaft.</p>
             
+            <div class="coaching-grid">
+                <div class="coaching-item"><span>🤝</span>Teambuilding</div>
+                <div class="coaching-item"><span>🐴</span>Pferde-Verständnis</div>
+                <div class="coaching-item"><span>✨</span>Entwicklung</div>
+                <div class="coaching-item"><span>⚖️</span>Körpersprache</div>
+            </div>
+
             <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
                 <div class="price-tag" style="flex: 1; min-width: 200px; margin: 0;">
                     <strong>Gruppencoaching</strong> (ab 5 Personen)<br>
-                    <span style="font-size: 0.85rem; color: #666;">Inkl. Auswertung bei Sekt oder Bier</span>
                 </div>
                 <div class="price-badge">30€ p.P.</div>
             </div>
@@ -291,6 +302,102 @@
             <div style="margin-top: 15px; padding: 12px; background: #fff; border-radius: 8px; border: 1px solid #eee; display: flex; align-items: center; gap: 10px;">
                 <span style="font-size: 1.2rem; flex-shrink: 0;">🌲</span>
                 <span style="font-size: 0.95rem;"><strong>Upgrade:</strong> Heiderunde mit Begleitung (+15€, ca. 1h zusätzlich)</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="mitglieder">
+        <h2>Unsere Reiter & Pferde</h2>
+        
+        <div class="download-container" style="border-left: 4px solid #2d5a27;">
+            <p style="margin-top: 0;"><strong>Werde Teil der Gemeinschaft!</strong></p>
+            <p>Du möchtest den Verein unterstützen oder selbst in den Sattel steigen? Hier findest du alle Unterlagen:</p>
+            <a href="Mitgliedsantrag.pdf" class="btn-download" download title="Mitgliedsantrag als PDF laden">
+                <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Jetzt Mitgliedsantrag herunterladen
+            </a>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #fdfaf6 0%, #f4f7f4 100%); border: 1px solid #e0e6e0; border-radius: 20px; padding: 30px; margin-bottom: 40px; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
+            <div style="display: flex; align-items: center; gap: 25px; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="color: #2d5a27; margin-top: 0; font-size: 1.6rem; display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 1.8rem;">👥</span> Der Vorstand
+                    </h3>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #444;">
+                        Hinter jedem starken Verein steht ein engagiertes Team. Unser Vorstand setzt sich leidenschaftlich für die Förderung des Pferdesports, das Wohl unserer Tiere und eine herzliche Stallgemeinschaft ein. 
+                    </p>
+                    <ul style="list-style: none; padding: 0; margin: 20px 0;">
+                        <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: #c18b4a;">★</span> <strong>Jasmin:</strong> Stellvertretende Vorsitzende
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: #c18b4a;">★</span> <strong>Lilli:</strong> Social Media Managerin
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: #c18b4a;">★</span> <strong>Tabea:</strong> Zeugwart
+                        </li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 300px; text-align: center;">
+                    <div style="position: relative; display: inline-block;">
+                        <img src="Bilder/Vorstand1.JPG" alt="Vorstand PSV Taura" 
+                             style="width: 100%; max-width: 450px; border-radius: 15px; border: 5px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.1); cursor: zoom-in;" 
+                             onclick="openImageLightbox(this)">
+                        <div style="position: absolute; bottom: -10px; right: -10px; background: #c18b4a; color: white; padding: 8px 15px; border-radius: 8px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                            Vereinsführung 2026
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="color: #2d5a27; text-align: center; margin-bottom: 30px;">Unsere aktiven Mitglieder</h3>
+        
+        <div class="members-grid">
+            <div class="member-card" onclick="openMemberLightbox(this)">
+                <div style="position: absolute; top: 15px; right: 15px; z-index: 2; background: rgba(45, 90, 39, 0.9); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold;">Social Media</div>
+                <div class="img-container"><img src="Bilder/Lilli3.JPG" alt="Lilli & Harmony" loading="lazy"></div>
+                <div class="member-info">
+                    <h3>Lilli</h3>
+                    <p style="color: #c18b4a; font-weight: bold; margin: 5px 0;">Harmonys Hope & Chipsy</p>
+                    <p class="preview-subline">Turniersport Springen</p>
+                    <div class="member-details" style="display:none;">
+                        <div class="bio-text">Lilli, Harmony und Chipsy sind ein eingespieltes Team. Zusammen sind sie oft auf Turnieren in der Region anzutreffen.</div>
+                        <div class="extra-imgs"><img src="Bilder/Lilli1.JPEG" alt="Lilli im Einsatz"><img src="Bilder/Lilli3.JPG" alt="Lilli & Harmony"></div>
+                    </div>
+                </div>
+                <div style="background: #f9f9f9; padding: 10px; font-size: 0.8rem; color: #888; border-top: 1px solid #eee;">Klicken für Details</div>
+            </div>
+
+            <div class="member-card" onclick="openMemberLightbox(this)">
+                <div style="position: absolute; top: 15px; right: 15px; z-index: 2; background: rgba(45, 90, 39, 0.9); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold;">Zeugwart</div>
+                <div class="img-container"><img src="Bilder/Tabea1.JPG" alt="Tabea & Miss Kaya" loading="lazy"></div>
+                <div class="member-info">
+                    <h3>Tabea</h3>
+                    <p style="color: #c18b4a; font-weight: bold; margin: 5px 0;">Miss Kaya</p>
+                    <p class="preview-subline">Turniersport Dressur & Springen</p>
+                    <div class="member-details" style="display:none;">
+                        <div class="bio-text">Das etwas andere Team - mit ihrem Pony Kaya ist sie in den Disziplinen Springen und Dressur im Turniersport aktiv.</div>
+                        <div class="extra-imgs"><img src="Bilder/Tabea1.JPG" alt="Tabea mit Kaya"></div>
+                    </div>
+                </div>
+                <div style="background: #f9f9f9; padding: 10px; font-size: 0.8rem; color: #888; border-top: 1px solid #eee;">Klicken für Details</div>
+            </div>
+
+            <div class="member-card" onclick="openMemberLightbox(this)">
+                <div style="position: absolute; top: 15px; right: 15px; z-index: 2; background: #c18b4a; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold;">Vize-Chefin</div>
+                <div class="img-container"><img src="Bilder/Jasmin1.JPG" alt="Jasmin & Just for Fun" loading="lazy"></div>
+                <div class="member-info">
+                    <h3>Jasmin</h3>
+                    <p style="color: #c18b4a; font-weight: bold; margin: 5px 0;">Just for Fun</p>
+                    <p class="preview-subline">Dressurreiterin aus Leidenschaft</p>
+                    <div class="member-details" style="display:none;">
+                        <div class="bio-text">Dressurreiterin aus Leidenschaft - Das Paar ist im Viereck zuhause.</div>
+                        <div class="extra-imgs"><img src="Bilder/Jasmin1.JPG" alt="Jasmin mit Funny"></div>
+                    </div>
+                </div>
+                <div style="background: #f9f9f9; padding: 10px; font-size: 0.8rem; color: #888; border-top: 1px solid #eee;">Klicken für Details</div>
             </div>
         </div>
     </section>
@@ -303,12 +410,12 @@
             <span class="coming-soon-badge">Bald verfügbar</span>
             <p><strong>Was wir für dich waschen:</strong></p>
             <ul class="feature-list">
-                <li>Pferdedecken (Winter & Sommer)</li>
-                <li>Schabracken & Sattelpads</li>
-                <li>Gamaschen & Bandagen</li>
-                <li>Hof- & Reittextilien</li>
+                <li>Stall-/Winter-/Outdoordecken</li>
+                <li>Abschwitzdecken</li>
+                <li>Schabracken</li>
+                <li>Gamaschen</li>
+                <li>weiteres Zubehör auf Anfrage</li>
             </ul>
-            <p style="font-size: 0.95rem; line-height: 1.4;">Nutze einfach unser Kontaktformular oder sprich uns direkt an, um dich für den Starttermin vormerken zu lassen.</p>
         </div>
     </section>
 
@@ -316,87 +423,10 @@
         <h2>Termine</h2>
         <div class="table-responsive">
             <table class="events-table">
-                <tr><td class="event-date">Wochenende (bei Sonne) - Ankündigung folgt</td><td>Ponyabenteuer an der Eisdiele. (Ponyreiten)</td></tr>
+                <tr><td class="event-date">Wochenende (bei Sonne)</td><td>Ponyabenteuer an der Eisdiele. (Ponyreiten)</td></tr>
                 <tr><td class="event-date">jeden 1. So. / Monat</td><td>Vereinstraining.</td></tr>
                 <tr><td class="event-date">auf Anfrage</td><td>Externes Ponyreiten möglich</td></tr>
             </table>
-        </div>
-    </section>
-
-    <section id="mitglieder">
-        <h2>Unsere Reiter & Pferde</h2>
-        
-        <div class="download-container">
-            <p>Du möchtest Teil unserer Gemeinschaft werden? Hier kannst du unseren Mitgliedsantrag herunterladen:</p>
-            <a href="Mitgliedsantrag.pdf" class="btn-download" download title="Mitgliedsantrag als PDF laden">
-                <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                Mitgliedsantrag herunterladen (PDF)
-            </a>
-        </div>
-
-        <div class="member-details" style="display:block; background: #fff; border: 1px solid #eee; border-radius: 15px; overflow: hidden; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align:center;">
-            <div class="bio-text">
-                <h3>Unser Vorstand</h3>
-                <p>Gemeinsam für den Verein: Das ist der Vorstand des Pferdesportvereins Taura e.V. Wir setzen uns für die Förderung des Pferdesports in der Region ein.</p>
-            </div>
-            <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px; width: 100%;">
-                <img src="Bilder/Vorstand1.JPG" alt="Der Vorstand des PSV Taura e.V." style="max-width: 100%; height: auto; max-height: 400px; object-fit: contain; border-radius: 8px; border: 1px solid #eee; cursor: zoom-in;" onclick="openImageLightbox(this)">
-            </div>
-        </div>
-        <div class="members-grid">
-            
-            <div class="member-card" onclick="openMemberLightbox(this)">
-                <div class="img-container"><img src="Bilder/Lilli3.JPG" alt="Lilli & Harmony" loading="lazy"></div>
-                <div class="member-info">
-                    <h3>Lilli mit Harmonys Hope & Chipsy</h3>
-                    <p class="preview-subline">Social Media Managerin</p>
-                    
-                    <div class="member-details" style="display:none;">
-                        <div class="bio-text">
-                            Lilli, Harmony und Chipsy sind ein eingespieltes Team. Zusammen sind sie oft auf Turnieren in der Region anzutreffen.
-                        </div>
-                        <div class="extra-imgs">
-                            <img src="Bilder/Lilli1.JPEG" alt="Bild 1">
-                            <img src="Bilder/Lilli3.JPG" alt="Bild 3">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="member-card" onclick="openMemberLightbox(this)">
-                <div class="img-container"><img src="Bilder/Tabea1.JPG" alt="Mitglied 2" loading="lazy"></div>
-                <div class="member-info">
-                    <h3>Tabea mit Miss Kaya</h3>
-                    <p class="preview-subline">Zeugwart</p>
-                    
-                    <div class="member-details" style="display:none;">
-                        <div class="bio-text">
-                           Das etwas andere Team - mit ihrem Pony Kaya ist sie in den Disziplinen Springen und Dressur im Turniersport aktiv. 
-                        </div>
-                        <div class="extra-imgs">
-                            <img src="Bilder/Tabea1.JPG" alt="Tabea mit Kaya">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="member-card" onclick="openMemberLightbox(this)">
-                <div class="img-container"><img src="Bilder/Jasmin1.JPG" alt="Mitglied 3" loading="lazy"></div>
-                <div class="member-info">
-                    <h3>Jasmin mit Just for Fun</h3>
-                    <p class="preview-subline">Stellvertretende Vorstandsvorsitzende</p>
-                    
-                    <div class="member-details" style="display:none;">
-                        <div class="bio-text">
-                            Dressurreiterin aus Leidenschaft - Das Paar ist im Viereck zuhause.
-                        </div>
-                        <div class="extra-imgs">
-                            <img src="Bilder/Jasmin1.JPG" alt="Jasmin mit Funny">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -421,7 +451,6 @@
             <img src="Bilder/Platzhalter.JPG" onclick="openImageLightbox(this)" loading="lazy">
             <img src="Bilder/Platzhalter.JPG" onclick="openImageLightbox(this)" loading="lazy">
             <img src="Bilder/Platzhalter.JPG" onclick="openImageLightbox(this)" loading="lazy">
- 
         </div>
     </section>
 
@@ -437,7 +466,7 @@
         </div>
     </section>
 
-    <section id="anfahrt">
+<section id="anfahrt">
         <h2>So findest du uns</h2>
         <p><strong>Reiterhof "Heideland" Taura GmbH</strong><br>Beckwitzer Str. 26, 04889 Belgern-Schildau</p>
         <div class="map-container">
@@ -455,9 +484,7 @@
             <p style="margin: 10px 0 0 0; font-size: 0.95rem;">
                 Möchtest du einen <strong>Mitgliedsantrag</strong> einreichen? <br>
                 Bitte sende uns diesen ausgefüllt per E-Mail an:
-                <a href="mailto:Pferdesportverein-taura@web.de" style="color: #c18b4a; font-weight: bold; text-decoration: none;">Pferdesportverein-taura@web.de</a> <br>
-             <p style="margin: 10px 0 0 0; font-size: 0.95rem;">
-                Für alle weiteren Anliegen kannst du gerne unser Kontaktformular verwenden.   
+                <a href="mailto:Pferdesportverein-taura@web.de" style="color: #c18b4a; font-weight: bold; text-decoration: none;">Pferdesportverein-taura@web.de</a>
             </p>
         </div>
 
@@ -475,7 +502,7 @@
 <footer>
     <div class="social-links">
         <a href="https://www.instagram.com/psv_taura/" target="_blank" class="social-icon" title="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.31 9.975.975 1.247 2.242 1.31 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.31 3.608-.975.975-2.242 1.247-3.608 1.31 1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.31-.975-.975-1.247-2.242-1.31-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.31-3.608.975-.975 2.242-1.247 3.608-1.31 1.266-.058-1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.439-.645-1.439-1.44s.644-1.44 1.439-1.44z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.31 9.975.975 1.247 2.242 1.31 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.31 3.608-.975.975-2.242 1.247-3.608 1.31-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.31-.975-.975-1.247-2.242-1.31-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.31-3.608.975-.975 2.242-1.247 3.608-1.31 1.266-.058-1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.439-.645-1.439-1.44s.644-1.44 1.439-1.44z"/></svg>
         </a>
         <a href="https://www.tiktok.com/@psv_taura" target="_blank" class="social-icon" title="TikTok">
             <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-1.13-.35-2.43-.2-3.41.49-.71.49-1.11 1.28-1.13 2.11-.01.82.4 1.57 1.02 2.1.68.59 1.61.82 2.49.64.95-.13 1.75-.78 2.11-1.66.14-.44.18-.91.17-1.37-.02-3.1-.01-6.21-.02-9.31z"/></svg>
@@ -507,21 +534,14 @@
         const detailsDiv = card.querySelector('.member-details');
         const bio = detailsDiv.querySelector('.bio-text').innerHTML;
         const extraImgsHtml = detailsDiv.querySelector('.extra-imgs').innerHTML;
-
         document.getElementById('lightbox-img').style.display = 'none';
-        
         document.getElementById('lightbox-text').innerHTML = `
             <div style="color: white; padding: 20px; max-width: 900px; margin: auto; text-align: center;">
                 <h2 style="color: #c18b4a; font-size: 2.2rem; margin-bottom: 20px;">${name}</h2>
-                <div style="font-size: 1.1rem; line-height: 1.7; color: #eee; margin-bottom: 30px;">
-                    ${bio}
-                </div>
-                <div class="lightbox-gallery">
-                    ${extraImgsHtml}
-                </div>
+                <div style="font-size: 1.1rem; line-height: 1.7; color: #eee; margin-bottom: 30px;">${bio}</div>
+                <div class="lightbox-gallery">${extraImgsHtml}</div>
             </div>
         `;
-
         document.getElementById('lightbox-text').style.display = 'block';
         document.getElementById('lightbox').style.display = 'flex';
         document.body.classList.add('modal-open');
