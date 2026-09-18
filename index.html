@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<h1 style="display:none;">Reitunterricht & Pferdesportverein in Taura bei Belgern-Schildau</h1>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Pferdesportverein Taura e.V.</title>
@@ -75,6 +74,73 @@
         }
         .news-box h4::before { content: '📢'; }
         .news-box p { margin: 0; line-height: 1.4; font-weight: 500; font-size: 0.95rem; }
+        .news-box .news-strong { color: #fff; font-weight: bold; display: block; margin-bottom: 4px; font-size: 1.05rem; }
+        .news-box .news-meta { font-size: 0.85rem; opacity: 0.9; display: block; margin-top: 4px; }
+
+        /* --- H1 / PAGE TITLE --- */
+        h1.page-title {
+            color: #2d5a27; text-align: center; margin: 30px 15px 5px;
+            font-size: 1.9rem; border-bottom: 3px solid #c18b4a; padding-bottom: 12px;
+        }
+
+        /* --- EVENT BANNER (Tag der offenen Tür) --- */
+        .event-banner {
+            background: linear-gradient(135deg, #2d5a27 0%, #3d7a35 60%, #c18b4a 100%);
+            color: white; border-radius: 16px; padding: 28px 30px; margin: 10px 0 25px;
+            box-shadow: 0 8px 25px rgba(45, 90, 39, 0.25);
+            display: grid; grid-template-columns: auto 1fr auto; gap: 22px; align-items: center;
+            position: relative; overflow: hidden;
+        }
+        .event-banner::before {
+            content: ''; position: absolute; top: -40px; right: -40px; width: 180px; height: 180px;
+            background: rgba(255,255,255,0.08); border-radius: 50%;
+        }
+        .event-banner::after {
+            content: ''; position: absolute; bottom: -60px; left: 40%; width: 220px; height: 220px;
+            background: rgba(255,255,255,0.05); border-radius: 50%;
+        }
+        .event-banner .eb-icon { font-size: 3.4rem; line-height: 1; flex-shrink: 0; }
+        .event-banner .eb-body { z-index: 1; }
+        .event-banner .eb-eyebrow {
+            display: inline-block; background: rgba(255,255,255,0.18);
+            padding: 4px 12px; border-radius: 20px; font-size: 0.75rem;
+            font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px;
+        }
+        .event-banner h2 {
+            color: white; border: none; padding: 0; margin: 0 0 8px 0;
+            font-size: 1.85rem; line-height: 1.2;
+        }
+        .event-banner .eb-details { font-size: 1rem; line-height: 1.6; }
+        .event-banner .eb-details strong { color: #fff5e6; }
+        .event-banner .eb-cta {
+            background: white; color: #2d5a27; padding: 14px 22px; border-radius: 30px;
+            text-decoration: none; font-weight: bold; font-size: 0.95rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: 0.3s;
+            white-space: nowrap; z-index: 1;
+        }
+        .event-banner .eb-cta:hover { background: #c18b4a; color: white; transform: translateY(-2px); }
+        .event-banner .eb-cta-secondary {
+            display: block; margin-top: 10px; color: rgba(255,255,255,0.95);
+            font-size: 0.85rem; text-align: center; text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .event-banner { grid-template-columns: 1fr; text-align: center; padding: 22px 18px; }
+            .event-banner .eb-icon { font-size: 2.6rem; }
+            .event-banner h2 { font-size: 1.4rem; }
+            .event-banner .eb-cta { width: 100%; }
+        }
+
+        /* --- TERMINE HIGHLIGHT --- */
+        .events-table tr.event-highlight td {
+            background: linear-gradient(90deg, rgba(193,139,74,0.15), rgba(193,139,74,0.05));
+            border-left: 4px solid #c18b4a;
+        }
+        .events-table tr.event-highlight td.event-date {
+            position: relative;
+        }
+        .events-table tr.event-highlight td.event-date::after {
+            content: '⭐'; margin-left: 8px; font-size: 0.9rem;
+        }
 
         .header-logo { max-width: 250px; width: 60%; height: auto; display: block; cursor: pointer; transition: transform 0.3s; }
         .header-logo:hover { transform: scale(1.05); }
@@ -249,7 +315,9 @@
 <header>
     <div class="news-box">
         <h4>Ankündigungen</h4>
-        <p>☀️ NEU: Unser Wäscheservice!</p>
+        <span class="news-strong">🐴 Tag der offenen Tür</span>
+        <p>Sonntag, 4. Oktober 2026 · 14:00–17:00 Uhr</p>
+        <span class="news-meta">Einweihung des Trails &amp; Rundgang über den Reiterhof – Beckwitzer Str. 26, Belgern-Schildau</span>
     </div>
     <img src="Bilder/logo.JPG" alt="Pferdesportverein Taura e.V." class="header-logo" onclick="startHorse()" loading="lazy">
     <div class="header-spacer"></div>
@@ -283,7 +351,23 @@
 </div>
 
 <div class="container">
-    
+
+    <h1 class="page-title">Pferdesportverein Taura e.V. – Dein Reiterhof in Belgern-Schildau</h1>
+
+    <div class="event-banner" id="tag-der-offenen-tuer">
+        <div class="eb-icon">🐎🌲</div>
+        <div class="eb-body">
+            <span class="eb-eyebrow">Tag der offenen Tür</span>
+            <h2>Einweihung des Trails &amp; Rundgang über den Reiterhof</h2>
+            <div class="eb-details">
+                <strong>Sonntag, 4. Oktober 2026</strong> · 14:00–17:00 Uhr<br>
+                <strong>Beckwitzer Straße 26, 04889 Belgern-Schildau</strong>
+            </div>
+            <a class="eb-cta-secondary" href="#anfahrt">📍 So findest du uns</a>
+        </div>
+        <a class="eb-cta" href="#termine">Zur Terminübersicht</a>
+    </div>
+
     <section id="angebot">
         <h2>Unterricht & Coaching</h2>
         <p>Entdecke die Welt des Reitens bei uns. Wir bieten qualifizierten Unterricht für alle Altersklassen auf unseren gut ausgebildeten Schulpferden.</p>
@@ -439,6 +523,10 @@
         <h2>Termine</h2>
         <div class="table-responsive">
             <table class="events-table">
+                <tr class="event-highlight">
+                    <td class="event-date">So., 04.10.2026 · 14:00–17:00</td>
+                    <td><strong>Tag der offenen Tür</strong> – Einweihung des neuen Trails &amp; Rundgang über den Reiterhof. <br><em>📍 Beckwitzer Straße 26, 04889 Belgern-Schildau</em></td>
+                </tr>
                 <tr><td class="event-date">Wochenende (bei Sonne)</td><td>Ponyabenteuer an der Eisdiele. (Ponyreiten)</td></tr>
                 <tr><td class="event-date">jeden 1. So. / Monat</td><td>Vereinstraining.</td></tr>
                 <tr><td class="event-date">auf Anfrage</td><td>Externes Ponyreiten möglich</td></tr>
@@ -500,7 +588,7 @@
             <p style="margin: 10px 0 0 0; font-size: 0.95rem;">
                 Möchtest du einen <strong>Mitgliedsantrag</strong> einreichen? <br>
                 Bitte sende uns diesen ausgefüllt per E-Mail an:
-                <a href="mailto:Pferdesportverein-taura@web.de" style="color: #c18b4a; font-weight: bold; text-decoration: none;">Pferdesportverein-taura@web.de</a> <br>
+                <a href="/cdn-cgi/l/email-protection#560630332432332526392422203324333f387b223723243716213334783233" style="color: #c18b4a; font-weight: bold; text-decoration: none;"><span class="__cf_email__" data-cfemail="adfdcbc8dfc9c8deddc2dfd9dbc8dfc8c4c380d9ccd8dfcceddac8cf83c9c8">[email&#160;protected]</span></a> <br>
              <p style="margin: 10px 0 0 0; font-size: 0.95rem;">
                 Für alle weiteren Anliegen kannst du gerne unser Kontaktformular verwenden.   
             </p>
@@ -532,7 +620,7 @@
     </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     let mybutton = document.getElementById("backToTop");
     window.onscroll = function() { if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) mybutton.style.display = "block"; else mybutton.style.display = "none"; };
     function scrollToTop() { window.scrollTo({top: 0, behavior: 'smooth'}); }
@@ -572,5 +660,6 @@
         if (e.ctrlKey && (e.key === 'h' || e.key === 'H')) { e.preventDefault(); document.body.classList.toggle('horseshoe-cursor'); }
     });
 </script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5","spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
